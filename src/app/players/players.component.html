@@ -1,0 +1,23 @@
+
+<!-- codigo agregado para comunicar back y front -->
+
+<div *ngFor="let player of players">
+  <h3>{{ player.long_name }}</h3>
+  <p>Club: {{ player.club_name }}</p>
+  <p>Posición: {{ player.player_positions }}</p>
+  <p>Valor: {{ player.value_eur }} EUR</p>
+</div>
+
+<!-- Filtros -->
+<div>
+  <input [(ngModel)]="filters.name" placeholder="Filtrar por nombre" />
+  <input [(ngModel)]="filters.club" placeholder="Filtrar por club" />
+  <input [(ngModel)]="filters.position" placeholder="Filtrar por posición" />
+  <button (click)="getPlayers()">Buscar</button>
+</div>
+
+<!-- Paginación -->
+<button (click)="page = page - 1; getPlayers()" [disabled]="page <= 1">Anterior</button>
+<button (click)="page = page + 1; getPlayers()">Siguiente</button>
+
+<!-- codigo agregado para comunicar back y front -->
